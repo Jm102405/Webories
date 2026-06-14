@@ -166,46 +166,12 @@ export default function Home() {
       {/* Hero Section */}
       <section
         className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden hero-section"
-        style={{ backgroundColor: "#F0E6D3", paddingLeft: "clamp(24px, 6vw, 96px)", paddingRight: "clamp(24px, 6vw, 96px)" }}
+        style={{
+          backgroundColor: "#F0E6D3",
+          paddingLeft: "clamp(24px, 6vw, 96px)",
+          paddingRight: "clamp(24px, 6vw, 96px)",
+        }}
       >
-        {[
-          { w: 300, h: 300, left: "5%", top: "10%", delay: 0 },
-          { w: 250, h: 250, left: "70%", top: "5%", delay: 1 },
-          { w: 400, h: 400, left: "60%", top: "50%", delay: 2 },
-          { w: 200, h: 200, left: "20%", top: "60%", delay: 1.5 },
-          { w: 350, h: 350, left: "85%", top: "20%", delay: 0.5 },
-          { w: 280, h: 280, left: "40%", top: "70%", delay: 3 },
-          { w: 180, h: 180, left: "15%", top: "30%", delay: 2.5 },
-          { w: 320, h: 320, left: "50%", top: "15%", delay: 1.2 },
-        ].map((b, i) => (
-          <motion.div
-            key={i}
-            style={{
-              position: "absolute",
-              borderRadius: "50%",
-              background:
-                "radial-gradient(circle, rgba(220,185,140,0.95) 0%, rgba(200,165,120,0.6) 40%, transparent 70%)",
-              width: `${b.w}px`,
-              height: `${b.h}px`,
-              left: b.left,
-              top: b.top,
-              filter: "blur(40px)",
-              pointerEvents: "none",
-            }}
-            animate={{
-              x: [0, 20, -15, 10, 0],
-              y: [0, -30, 15, -10, 0],
-              scale: [1, 1.15, 0.95, 1.1, 1],
-              opacity: [0.7, 1, 0.6, 0.9, 0.7],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: b.delay,
-            }}
-          />
-        ))}
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <motion.div
@@ -257,9 +223,9 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex justify-center"
           >
-            <button className="btn-primary">
+            <a href="#templates" className="btn-primary">
               View Templates <ArrowRight size={18} />
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -636,25 +602,25 @@ export default function Home() {
               icon: "📘",
               label: "Facebook",
               value: "Webories",
-              href: "https://facebook.com/webories",
+              href: "https://web.facebook.com/profile.php?id=61590736263312",
             },
             {
               icon: "📸",
               label: "Instagram",
-              value: "@webories",
-              href: "https://instagram.com/webories",
+              value: "@webories.site",
+              href: "https://www.instagram.com/webories.site",
             },
             {
               icon: "🎵",
               label: "TikTok",
-              value: "@webories",
-              href: "https://tiktok.com/@webories",
+              value: "@webories.site",
+              href: "https://www.tiktok.com/@webories.site",
             },
             {
               icon: "📞",
               label: "Phone",
-              value: "+63 912 345 6789",
-              href: "tel:+639123456789",
+              value: "0952 477 3195",
+              href: "tel:+639524773195",
             },
           ].map((contact, i) => (
             <motion.a
