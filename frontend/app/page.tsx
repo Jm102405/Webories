@@ -136,7 +136,14 @@ export default function Home() {
                 <a
                   href="#services"
                   className="nav-link"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setTimeout(() => {
+                      document
+                        .getElementById("services")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }, 300);
+                  }}
                   style={{ fontSize: "16px", padding: "8px 0" }}
                 >
                   Services
@@ -144,7 +151,14 @@ export default function Home() {
                 <a
                   href="#templates"
                   className="nav-link"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setTimeout(() => {
+                      document
+                        .getElementById("templates")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }, 300);
+                  }}
                   style={{ fontSize: "16px", padding: "8px 0" }}
                 >
                   Templates
@@ -152,7 +166,14 @@ export default function Home() {
                 <a
                   href="#contact"
                   className="nav-link"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setTimeout(() => {
+                      document
+                        .getElementById("contact")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }, 300);
+                  }}
                   style={{ fontSize: "16px", padding: "8px 0" }}
                 >
                   Contact
@@ -172,7 +193,6 @@ export default function Home() {
           paddingRight: "clamp(24px, 6vw, 96px)",
         }}
       >
-
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
