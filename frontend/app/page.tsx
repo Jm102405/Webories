@@ -421,11 +421,36 @@ export default function Home() {
         <div className="templates-grid">
           {[
             {
+              name: "Dark Romantic",
+              category: "Event",
+              desc: "Anniversary & Monthsary",
+              bg: "rgba(40,10,30,0.8)",
+              accent: "#ffb0b0",
+              href: "https://dark-romantic.vercel.app",
+            },
+            {
+              name: "Light Romantic",
+              category: "Event",
+              desc: "Anniversary & Monthsary",
+              bg: "rgba(255,235,235,0.25)",
+              accent: "#f4a0a0",
+              href: "https://light-romantic.vercel.app",
+            },
+            {
+              name: "Pastel Romantic",
+              category: "Event",
+              desc: "Anniversary & Monthsary",
+              bg: "rgba(255,200,220,0.25)",
+              accent: "#ffcce0",
+              href: "https://pastel-romantic.vercel.app",
+            },
+            {
               name: "Wedding Elegance",
               category: "Event",
               desc: "Classic & Elegant",
               bg: "rgba(196,168,130,0.35)",
               accent: "#C4A882",
+              href: "#",
             },
             {
               name: "Modern Minimal",
@@ -433,20 +458,7 @@ export default function Home() {
               desc: "Clean & Professional",
               bg: "rgba(30,77,183,0.35)",
               accent: "#aac4f0",
-            },
-            {
-              name: "Sweet Celebration",
-              category: "Event",
-              desc: "Fun & Vibrant",
-              bg: "rgba(100,60,180,0.35)",
-              accent: "#c4b0ff",
-            },
-            {
-              name: "Anniversary Love",
-              category: "Event",
-              desc: "Romantic & Warm",
-              bg: "rgba(180,100,100,0.35)",
-              accent: "#ffb0b0",
+              href: "#",
             },
             {
               name: "Creative Studio",
@@ -454,13 +466,7 @@ export default function Home() {
               desc: "Bold & Creative",
               bg: "rgba(10,70,50,0.45)",
               accent: "#a0ffcc",
-            },
-            {
-              name: "Monthsary Bliss",
-              category: "Event",
-              desc: "Sweet & Playful",
-              bg: "rgba(30,77,183,0.3)",
-              accent: "#aac4f0",
+              href: "#",
             },
           ].map((t, i) => (
             <motion.div
@@ -481,25 +487,49 @@ export default function Home() {
             >
               <div
                 style={{
-                  height: "140px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: t.bg,
+                  height: "200px",
+                  overflow: "hidden",
+                  position: "relative",
+                  borderRadius: "16px 16px 0 0",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "var(--font-playfair)",
-                    fontSize: "1.1rem",
-                    color: "white",
-                    fontWeight: 600,
-                    textAlign: "center",
-                    padding: "0 16px",
-                  }}
-                >
-                  {t.name}
-                </span>
+                {t.href !== "#" ? (
+                  <iframe
+                    src={t.href}
+                    style={{
+                      width: "200%",
+                      height: "200%",
+                      border: "none",
+                      transform: "scale(0.5)",
+                      transformOrigin: "top left",
+                      pointerEvents: "none",
+                    }}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div
+                    style={{
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: t.bg,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-playfair)",
+                        fontSize: "1.1rem",
+                        color: "white",
+                        fontWeight: 600,
+                        textAlign: "center",
+                        padding: "0 16px",
+                      }}
+                    >
+                      {t.name}
+                    </span>
+                  </div>
+                )}
               </div>
               <div style={{ padding: "16px" }}>
                 <p
@@ -533,19 +563,31 @@ export default function Home() {
                 >
                   {t.desc}
                 </p>
-                <button
+                <a
+                  href={t.href === "#" ? undefined : t.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={
+                    t.href === "#" ? (e) => e.preventDefault() : undefined
+                  }
                   style={{
-                    background: "rgba(30,77,183,0.85)",
-                    color: "white",
+                    display: "inline-block",
+                    background:
+                      t.href === "#"
+                        ? "rgba(255,255,255,0.15)"
+                        : "rgba(30,77,183,0.85)",
+                    color: t.href === "#" ? "rgba(255,255,255,0.4)" : "white",
                     border: "none",
                     padding: "6px 16px",
                     borderRadius: "999px",
                     fontSize: "12px",
-                    cursor: "pointer",
+                    cursor: t.href === "#" ? "not-allowed" : "pointer",
+                    textDecoration: "none",
+                    pointerEvents: t.href === "#" ? "none" : "auto",
                   }}
                 >
-                  Preview →
-                </button>
+                  {t.href === "#" ? "Coming Soon" : "Preview →"}
+                </a>
               </div>
             </motion.div>
           ))}
