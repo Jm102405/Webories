@@ -356,7 +356,7 @@ body {
   }
 
   .zigzag-step {
-    flex-direction: column !important;
+    flex-direction: column-reverse !important;
     align-items: center !important;
     text-align: center !important;
     gap: 24px;
