@@ -29,7 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+        <link
+          rel="icon"
+          href="/favicon-32.png"
+          type="image/png"
+          sizes="32x32"
+        />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
         {children}
