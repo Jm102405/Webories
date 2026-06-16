@@ -176,3 +176,10 @@ body {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* === DESKTOP ONLY (min 1025px) === */
+@media (min-width: 1025px) {
+  .navbar-inner {
+    padding-left: clamp(2px, 1vw, 4px) !important;
+  }
+}

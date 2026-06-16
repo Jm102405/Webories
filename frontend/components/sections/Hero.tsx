@@ -2,39 +2,25 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section
       style={{
-        minHeight: "100vh",
-        backgroundColor: "var(--tertiary)",
-        paddingTop: "80px",
+        minHeight: "100svh",
+        backgroundColor: "#F5F0E8",
+        paddingTop: "clamp(70px, 6vh, 80px)",
+        paddingBottom: "clamp(40px, 5vh, 64px)",
         paddingLeft: "var(--section-x)",
         paddingRight: "var(--section-x)",
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Background decorative blob */}
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          right: "-5%",
-          width: "clamp(280px, 40vw, 560px)",
-          height: "clamp(280px, 40vw, 560px)",
-          backgroundColor: "var(--secondary)",
-          borderRadius: "50%",
-          filter: "blur(80px)",
-          opacity: 0.5,
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
       <div
         style={{
           maxWidth: "var(--max-w)",
@@ -59,7 +45,7 @@ export default function Hero() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              backgroundColor: "var(--secondary)",
+              backgroundColor: "#E8DCC8",
               color: "var(--primary)",
               padding: "6px 16px",
               borderRadius: "999px",
@@ -68,7 +54,7 @@ export default function Hero() {
               fontWeight: 600,
               letterSpacing: "0.06em",
               textTransform: "uppercase",
-              marginBottom: "28px",
+              marginBottom: "16px",
             }}
           >
             <Star size={12} />
@@ -81,11 +67,11 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             style={{
               fontFamily: "var(--font-playfair)",
-              fontSize: "clamp(38px, 5.5vw, 72px)",
+              fontSize: "clamp(32px, 4.5vw, 58px)",
               fontWeight: 700,
               color: "var(--primary)",
               lineHeight: 1.15,
-              marginBottom: "24px",
+              marginBottom: "14px",
               letterSpacing: "-0.02em",
             }}
           >
@@ -102,10 +88,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "clamp(16px, 1.8vw, 18px)",
-              color: "var(--text-secondary)",
+              fontSize: "clamp(15px, 1.6vw, 17px)",
+              color: "#6B6560",
               lineHeight: 1.75,
-              marginBottom: "40px",
+              marginBottom: "24px",
               maxWidth: "480px",
             }}
           >
@@ -140,33 +126,10 @@ export default function Hero() {
             >
               View Templates <ArrowRight size={16} />
             </a>
-
-            <a
-              href="#services"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                backgroundColor: "transparent",
-                color: "var(--primary)",
-                padding: "14px 32px",
-                borderRadius: "999px",
-                fontFamily: "var(--font-headline)",
-                fontSize: "14px",
-                fontWeight: 600,
-                letterSpacing: "0.04em",
-                textDecoration: "none",
-                border: "1.5px solid var(--primary)",
-                transition: "all 0.3s ease",
-              }}
-              className="btn-outline"
-            >
-              Our Services
-            </a>
           </motion.div>
         </div>
 
-        {/* Right — Image Card */}
+        {/* Right — Image */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -178,71 +141,34 @@ export default function Hero() {
             style={{
               borderRadius: "24px",
               overflow: "hidden",
-              aspectRatio: "4/5",
-              backgroundColor: "var(--secondary)",
-              boxShadow: "0 24px 80px rgba(27,42,74,0.12)",
+              height: "clamp(320px, 55vh, 480px)",
+              backgroundColor: "#EDE3D0",
+              boxShadow: "0 24px 80px rgba(27,42,74,0.14)",
+              border: "1px solid rgba(27,42,74,0.08)",
+              position: "relative",
             }}
           >
-            {/* Placeholder visual */}
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                background:
-                  "linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 50%, var(--primary) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "16px",
-                padding: "40px",
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "var(--font-playfair)",
-                  fontSize: "clamp(28px, 4vw, 48px)",
-                  fontWeight: 700,
-                  color: "#FFFFFF",
-                  textAlign: "center",
-                  lineHeight: 1.3,
-                }}
-              >
-                Every moment deserves a beautiful page
-              </div>
-              <div
-                style={{
-                  width: "48px",
-                  height: "2px",
-                  backgroundColor: "rgba(255,255,255,0.4)",
-                  borderRadius: "2px",
-                }}
-              />
-              <div
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "14px",
-                  color: "rgba(255,255,255,0.7)",
-                  textAlign: "center",
-                }}
-              >
-                Weddings · Anniversaries · Portfolios
-              </div>
-            </div>
+            <Image
+              src="/logoicon.png"
+              alt="Webories"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
           </div>
 
-          {/* Decorative element */}
+          {/* Decorative corner block */}
           <div
             style={{
               position: "absolute",
-              bottom: "-20px",
-              left: "-20px",
-              width: "160px",
-              height: "160px",
-              backgroundColor: "var(--secondary)",
-              borderRadius: "20px",
+              bottom: "-16px",
+              left: "-16px",
+              width: "120px",
+              height: "120px",
+              backgroundColor: "#E8DCC8",
+              borderRadius: "16px",
               zIndex: -1,
-              opacity: 0.6,
+              opacity: 0.7,
             }}
           />
         </motion.div>

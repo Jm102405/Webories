@@ -69,7 +69,7 @@ export default function Templates() {
     <section
       id="templates"
       style={{
-        backgroundColor: "var(--tertiary)",
+        backgroundColor: "#F5F0E8",
         padding: "var(--section-y) var(--section-x)",
         position: "relative",
         overflow: "hidden",
@@ -83,10 +83,10 @@ export default function Templates() {
           right: "0",
           width: "500px",
           height: "500px",
-          backgroundColor: "var(--secondary)",
+          backgroundColor: "#E8DCC8",
           borderRadius: "50%",
           filter: "blur(120px)",
-          opacity: 0.35,
+          opacity: 0.6,
           pointerEvents: "none",
         }}
       />
@@ -107,11 +107,11 @@ export default function Templates() {
           transition={{ duration: 0.6 }}
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
             marginBottom: "16px",
-            flexWrap: "wrap",
-            gap: "16px",
+            gap: "12px",
           }}
         >
           <div>
@@ -150,10 +150,10 @@ export default function Templates() {
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "15px",
-              color: "var(--text-muted)",
+              color: "#6B6560",
               maxWidth: "320px",
               lineHeight: 1.6,
-              textAlign: "right",
+              textAlign: "left",
             }}
             className="templates-subtitle"
           >
@@ -172,6 +172,7 @@ export default function Templates() {
             gap: "10px",
             marginBottom: "48px",
             flexWrap: "wrap",
+            justifyContent: "center",
           }}
         >
           {filters.map((f) => (
@@ -186,9 +187,9 @@ export default function Templates() {
                 fontWeight: 600,
                 letterSpacing: "0.03em",
                 cursor: "pointer",
-                border: active === f ? "none" : "1.5px solid var(--primary)",
-                backgroundColor:
-                  active === f ? "var(--primary)" : "transparent",
+                border:
+                  active === f ? "none" : "1.5px solid rgba(27,42,74,0.2)",
+                backgroundColor: active === f ? "var(--primary)" : "#FFFFFF",
                 color: active === f ? "#FFFFFF" : "var(--primary)",
                 transition: "all 0.3s ease",
               }}
@@ -212,8 +213,8 @@ export default function Templates() {
                 borderRadius: "20px",
                 overflow: "hidden",
                 border: "1px solid rgba(27,42,74,0.08)",
-                backgroundColor: "var(--white)",
-                boxShadow: "0 4px 24px rgba(27,42,74,0.06)",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0 4px 24px rgba(27,42,74,0.08)",
                 cursor: "pointer",
               }}
             >
@@ -350,7 +351,7 @@ export default function Templates() {
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "15px",
-              color: "var(--text-muted)",
+              color: "#6B6560",
             }}
           >
             Don&apos;t see what you like?{" "}

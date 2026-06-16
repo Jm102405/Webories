@@ -29,7 +29,7 @@ export default function Services() {
     <section
       id="services"
       style={{
-        backgroundColor: "var(--primary)",
+        backgroundColor: "#F5F0E8",
         padding: "var(--section-y) var(--section-x)",
         position: "relative",
         overflow: "hidden",
@@ -43,10 +43,10 @@ export default function Services() {
           left: "5%",
           width: "300px",
           height: "300px",
-          backgroundColor: "var(--primary-light)",
+          backgroundColor: "#E8DCC8",
           borderRadius: "50%",
           filter: "blur(100px)",
-          opacity: 0.4,
+          opacity: 0.6,
           pointerEvents: "none",
         }}
       />
@@ -86,8 +86,8 @@ export default function Services() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              backgroundColor: "rgba(232,220,200,0.12)",
-              color: "var(--secondary)",
+              backgroundColor: "#E8DCC8",
+              color: "var(--primary)",
               padding: "6px 16px",
               borderRadius: "999px",
               fontSize: "12px",
@@ -105,7 +105,7 @@ export default function Services() {
               fontFamily: "var(--font-playfair)",
               fontSize: "clamp(28px, 4vw, 48px)",
               fontWeight: 700,
-              color: "#FFFFFF",
+              color: "var(--primary)",
               marginBottom: "16px",
               letterSpacing: "-0.02em",
             }}
@@ -116,7 +116,7 @@ export default function Services() {
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "clamp(15px, 1.6vw, 17px)",
-              color: "rgba(255,255,255,0.55)",
+              color: "#6B6560",
               maxWidth: "480px",
               margin: "0 auto",
               lineHeight: 1.7,
@@ -136,8 +136,8 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               style={{
-                backgroundColor: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                backgroundColor: "#FFFFFF",
+                border: "1px solid rgba(27,42,74,0.08)",
                 borderRadius: "20px",
                 padding: "clamp(28px, 4vw, 40px)",
                 transition: "all 0.3s ease",
@@ -150,11 +150,11 @@ export default function Services() {
                   width: "64px",
                   height: "64px",
                   borderRadius: "16px",
-                  backgroundColor: "rgba(232,220,200,0.1)",
+                  backgroundColor: "#F5F0E8",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "var(--secondary)",
+                  color: "var(--primary)",
                   marginBottom: "24px",
                 }}
               >
@@ -182,7 +182,7 @@ export default function Services() {
                   fontFamily: "var(--font-playfair)",
                   fontSize: "clamp(20px, 2.5vw, 26px)",
                   fontWeight: 700,
-                  color: "#FFFFFF",
+                  color: "var(--primary)",
                   marginBottom: "14px",
                   letterSpacing: "-0.01em",
                 }}
@@ -195,32 +195,13 @@ export default function Services() {
                 style={{
                   fontFamily: "var(--font-body)",
                   fontSize: "clamp(14px, 1.4vw, 15px)",
-                  color: "rgba(255,255,255,0.5)",
+                  color: "#6B6560",
                   lineHeight: 1.75,
                   marginBottom: "28px",
                 }}
               >
                 {s.desc}
               </p>
-
-              {/* Link */}
-
-              <a
-                href="#contact"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  fontFamily: "var(--font-headline)",
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  color: "var(--secondary)",
-                  textDecoration: "none",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                Learn More →
-              </a>
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 "use client";
-
 import { motion } from "framer-motion";
+import { Phone } from "lucide-react";
 
 const contacts = [
   {
@@ -45,7 +45,7 @@ const contacts = [
     href: "https://www.tiktok.com/@webories.site",
   },
   {
-    icon: "📞",
+    icon: <Phone size={28} fill="var(--primary)" color="var(--primary)" />,
     label: "Phone",
     value: "0952 477 3195",
     href: "tel:+639524773195",
@@ -57,7 +57,7 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        backgroundColor: "var(--primary)",
+        backgroundColor: "#F5F0E8",
         padding: "var(--section-y) var(--section-x)",
         position: "relative",
         overflow: "hidden",
@@ -72,10 +72,10 @@ export default function Contact() {
           transform: "translateX(-50%)",
           width: "600px",
           height: "600px",
-          backgroundColor: "var(--primary-light)",
+          backgroundColor: "#E8DCC8",
           borderRadius: "50%",
           filter: "blur(120px)",
-          opacity: 0.3,
+          opacity: 0.6,
           pointerEvents: "none",
         }}
       />
@@ -101,8 +101,8 @@ export default function Contact() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              backgroundColor: "rgba(232,220,200,0.12)",
-              color: "var(--secondary)",
+              backgroundColor: "#E8DCC8",
+              color: "var(--primary)",
               padding: "6px 16px",
               borderRadius: "999px",
               fontSize: "12px",
@@ -120,7 +120,7 @@ export default function Contact() {
               fontFamily: "var(--font-playfair)",
               fontSize: "clamp(28px, 4vw, 48px)",
               fontWeight: 700,
-              color: "#FFFFFF",
+              color: "var(--primary)",
               marginBottom: "16px",
               letterSpacing: "-0.02em",
             }}
@@ -133,7 +133,7 @@ export default function Contact() {
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "clamp(15px, 1.6vw, 17px)",
-              color: "rgba(255,255,255,0.5)",
+              color: "#6B6560",
               maxWidth: "440px",
               margin: "0 auto",
               lineHeight: 1.7,
@@ -166,8 +166,8 @@ export default function Contact() {
                 gap: "10px",
                 padding: "32px 24px",
                 borderRadius: "20px",
-                backgroundColor: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                backgroundColor: "#FFFFFF",
+                border: "1px solid rgba(27,42,74,0.08)",
                 textDecoration: "none",
                 cursor: "pointer",
                 transition: "all 0.2s ease",
@@ -182,7 +182,7 @@ export default function Contact() {
                   width: "56px",
                   height: "56px",
                   borderRadius: "14px",
-                  backgroundColor: "rgba(232,220,200,0.08)",
+                  backgroundColor: "#F5F0E8",
                 }}
               >
                 {contact.icon}
@@ -190,7 +190,7 @@ export default function Contact() {
               <span
                 style={{
                   fontFamily: "var(--font-headline)",
-                  color: "rgba(255,255,255,0.4)",
+                  color: "#6B6560",
                   fontSize: "11px",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
@@ -202,7 +202,7 @@ export default function Contact() {
               <span
                 style={{
                   fontFamily: "var(--font-headline)",
-                  color: "var(--secondary)",
+                  color: "var(--primary)",
                   fontSize: "14px",
                   fontWeight: 600,
                 }}
