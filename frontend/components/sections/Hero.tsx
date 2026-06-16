@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
-import Image from "next/image";
 
 const butterflies = [
   { id: 1, size: 28, top: "-40px", left: "10%", delay: 0, duration: 4 },
@@ -304,71 +303,6 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
-
-        {/* Right — Image */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-          }}
-          className="hero-image-wrap"
-        >
-          {/* Glassmorphism Card */}
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              aspectRatio: "3 / 2",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {/* Soft glow */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                borderRadius: "32px",
-                background:
-                  "radial-gradient(circle at 50% 50%, rgba(196,168,130,0.15), transparent 70%)",
-                pointerEvents: "none",
-              }}
-            />
-            <motion.div
-              animate={{
-                y: [0, -12, 0],
-                scale: [1, 1.04, 1],
-                rotate: [0, 2, -2, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                times: [0, 0.5, 1],
-              }}
-              style={{ width: "85%", zIndex: 1, position: "relative" }}
-            >
-              <Image
-                src="/logoicon.png"
-                alt="Webories"
-                width={600}
-                height={600}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "contain",
-                }}
-                priority
-              />
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

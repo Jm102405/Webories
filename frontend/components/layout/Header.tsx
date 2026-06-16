@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,14 +39,33 @@ export default function Header() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "22px",
-            fontWeight: 700,
-            color: "var(--primary)",
-            letterSpacing: "-0.3px",
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
           }}
         >
-          Webories
+          <Image
+            src="/logoicon.png"
+            alt="Webories"
+            width={52}
+            height={52}
+            style={{
+              width: "52px",
+              height: "52px",
+              objectFit: "contain",
+            }}
+          />
+          <span
+            style={{
+              fontFamily: "var(--font-playfair)",
+              fontSize: "22px",
+              fontWeight: 700,
+              color: "var(--primary)",
+              letterSpacing: "-0.3px",
+            }}
+          >
+            Webories
+          </span>
         </motion.div>
 
         {/* Desktop Nav */}
