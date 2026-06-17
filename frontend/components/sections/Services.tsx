@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Briefcase, Star } from "lucide-react";
+import { Calendar, Briefcase, Star} from "lucide-react";
 
 const services = [
   {
@@ -9,20 +9,33 @@ const services = [
     label: "Events",
     title: "Event Pages",
     desc: "Wedding, anniversary, monthsary, birthday, or any special occasion — we craft beautiful event pages tailored to your special occasion. Choose from our curated templates or go fully custom.",
+    href: "#templates",
   },
   {
     icon: <Briefcase size={32} />,
     label: "Portfolio",
     title: "Portfolio Design",
     desc: "Modern, professional portfolios built to impress. We design stunning showcase pages that highlight your work and get you noticed by clients worldwide.",
+    href: "#templates",
   },
   {
     icon: <Star size={32} />,
     label: "Custom",
     title: "Custom Builds",
     desc: "Have something unique in mind? We build fully custom websites from scratch — your vision, your brand, your way. No templates, no limits.",
+    href: "#contact",
   },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.15 },
+  }),
+  hovered: {},
+};
 
 export default function Services() {
   return (
@@ -131,21 +144,29 @@ export default function Services() {
           {services.map((s, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hovered"
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
               style={{
                 backgroundColor: "#FFFFFF",
-                border: "1px solid rgba(27,42,74,0.08)",
                 borderRadius: "20px",
                 padding: "clamp(28px, 4vw, 40px)",
-                transition: "all 0.3s ease",
+                display: "flex",
+                flexDirection: "column",
+                position: "relative",
+                cursor: "default",
               }}
               className="service-card"
             >
-              {/* Icon */}
-              <div
+              {/* Animated Icon Box */}
+              <motion.div
+                variants={{
+                  hovered: { scale: 1.12, rotate: 6 },
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 18 }}
                 style={{
                   width: "64px",
                   height: "64px",
@@ -159,7 +180,7 @@ export default function Services() {
                 }}
               >
                 {s.icon}
-              </div>
+              </motion.div>
 
               {/* Label */}
               <div
@@ -198,6 +219,7 @@ export default function Services() {
                   color: "#6B6560",
                   lineHeight: 1.75,
                   marginBottom: "28px",
+                  flex: 1,
                 }}
               >
                 {s.desc}

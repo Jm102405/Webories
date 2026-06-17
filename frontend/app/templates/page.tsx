@@ -2,6 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const templates = [
   {
@@ -56,8 +58,9 @@ const templates = [
 
 const filters = ["All", "Events", "Portfolio"];
 
-export default function Templates() {
+export default function TemplatesPage() {
   const [active, setActive] = useState("All");
+  const router = useRouter();
 
   const filtered = templates.filter((t) => {
     if (active === "All") return true;
@@ -66,140 +69,122 @@ export default function Templates() {
   });
 
   return (
-    <section
-      id="templates"
-      style={{
-        backgroundColor: "#F5F0E8",
-        padding: "var(--section-y) var(--section-x)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Subtle bg blob */}
+    <main style={{ minHeight: "100vh", backgroundColor: "#F5F0E8" }}>
+      {/* ── STICKY HEADER ── */}
       <div
         style={{
-          position: "absolute",
-          bottom: "0",
-          right: "0",
-          width: "500px",
-          height: "500px",
-          backgroundColor: "#E8DCC8",
-          borderRadius: "50%",
-          filter: "blur(120px)",
-          opacity: 0.6,
-          pointerEvents: "none",
-        }}
-      />
-
-      <div
-        style={{
-          maxWidth: "var(--max-w)",
-          margin: "0 auto",
-          position: "relative",
-          zIndex: 1,
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          backgroundColor: "rgba(245,240,232,0.92)",
+          backdropFilter: "blur(12px)",
+          borderBottom: "1px solid rgba(27,42,74,0.08)",
+          padding: "16px var(--section-x)",
         }}
       >
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        {/* Row: Back Button + Title + Filters */}
+        <div
           style={{
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
-            textAlign: "center",
-            marginBottom: "16px",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
             gap: "12px",
           }}
         >
-          <div>
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                backgroundColor: "var(--secondary)",
-                color: "var(--primary)",
-                padding: "6px 16px",
-                borderRadius: "999px",
-                fontSize: "12px",
-                fontFamily: "var(--font-headline)",
-                fontWeight: 600,
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                marginBottom: "16px",
-              }}
-            >
-              Our Templates
-            </div>
-            <h2
+          {/* Back Button */}
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            onClick={() => router.back()}
+            className="back-btn"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              backgroundColor: "#FFFFFF",
+              border: "1.5px solid rgba(27,42,74,0.12)",
+              borderRadius: "999px",
+              padding: "10px 20px",
+              fontFamily: "var(--font-headline)",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "var(--primary)",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              flexShrink: 0,
+            }}
+          >
+            <ArrowLeft size={15} /> Back to Home
+          </motion.button>
+
+          {/* Center: Title + Subtitle + Filters */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{
+              textAlign: "center",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <h1
               style={{
                 fontFamily: "var(--font-playfair)",
-                fontSize: "clamp(28px, 4vw, 48px)",
+                fontSize: "clamp(18px, 2vw, 28px)",
                 fontWeight: 700,
                 color: "var(--primary)",
                 letterSpacing: "-0.02em",
               }}
             >
-              Select a Foundation
-            </h2>
-          </div>
-          <p
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "15px",
-              color: "#6B6560",
-              maxWidth: "320px",
-              lineHeight: 1.6,
-              textAlign: "left",
-            }}
-            className="templates-subtitle"
-          >
-            Browse our curated collection — pick one, we&apos;ll do the rest
-          </p>
-        </motion.div>
-
-        {/* Filter Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          style={{
-            display: "flex",
-            gap: "10px",
-            marginBottom: "48px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
+              All Templates
+            </h1>
+            <p
               style={{
-                padding: "8px 24px",
-                borderRadius: "999px",
-                fontFamily: "var(--font-headline)",
+                fontFamily: "var(--font-body)",
                 fontSize: "13px",
-                fontWeight: 600,
-                letterSpacing: "0.03em",
-                cursor: "pointer",
-                border:
-                  active === f ? "none" : "1.5px solid rgba(27,42,74,0.2)",
-                backgroundColor: active === f ? "var(--primary)" : "#FFFFFF",
-                color: active === f ? "#FFFFFF" : "var(--primary)",
-                transition: "all 0.3s ease",
+                color: "#6B6560",
               }}
             >
-              {f}
-            </button>
-          ))}
-        </motion.div>
+              Browse our full collection — pick one, we&apos;ll do the rest
+            </p>
+            {/* Filter Tabs */}
+            <div style={{ display: "flex", gap: "8px", marginTop: "4px" }}>
+              {filters.map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setActive(f)}
+                  style={{
+                    padding: "8px 20px",
+                    borderRadius: "999px",
+                    fontFamily: "var(--font-headline)",
+                    fontSize: "13px",
+                    fontWeight: 600,
+                    letterSpacing: "0.03em",
+                    cursor: "pointer",
+                    border:
+                      active === f ? "none" : "1.5px solid rgba(27,42,74,0.2)",
+                    backgroundColor:
+                      active === f ? "var(--primary)" : "#FFFFFF",
+                    color: active === f ? "#FFFFFF" : "var(--primary)",
+                    transition: "all 0.3s ease",
+                  }}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
-        {/* Grid */}
+      {/* ── SCROLLABLE GRID ── */}
+      <div style={{ padding: "40px var(--section-x) var(--section-y)" }}>
         <motion.div layout className="templates-grid">
           <AnimatePresence mode="popLayout">
             {filtered.map((t, i) => (
@@ -337,67 +322,7 @@ export default function Templates() {
             ))}
           </AnimatePresence>
         </motion.div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          style={{
-            textAlign: "center",
-            marginTop: "56px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "16px",
-          }}
-        >
-          <a
-            href="/templates"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              backgroundColor: "var(--primary)",
-              color: "#FFFFFF",
-              padding: "14px 32px",
-              borderRadius: "999px",
-              fontFamily: "var(--font-headline)",
-              fontSize: "14px",
-              fontWeight: 600,
-              letterSpacing: "0.04em",
-              textDecoration: "none",
-              transition: "all 0.3s ease",
-            }}
-            className="btn-primary"
-          >
-            View All Templates →
-          </a>
-          <p
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "15px",
-              color: "#6B6560",
-            }}
-          >
-            Don&apos;t see what you like?{" "}
-            <a
-              href="#contact"
-              style={{
-                color: "var(--primary)",
-                fontFamily: "var(--font-headline)",
-                fontWeight: 600,
-                textDecoration: "none",
-                borderBottom: "1.5px solid var(--gold)",
-                paddingBottom: "1px",
-              }}
-            >
-              Let&apos;s build something custom →
-            </a>
-          </p>
-        </motion.div>
       </div>
-    </section>
+    </main>
   );
 }

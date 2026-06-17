@@ -107,9 +107,9 @@ body {
 }
 
 .service-card:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(196, 168, 130, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(196, 168, 130, 0.15), 0 20px 48px rgba(27, 42, 74, 0.1) !important;
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 /* === TEMPLATES === */
@@ -201,4 +201,32 @@ body {
   .navbar-inner {
     padding-left: clamp(2px, 1vw, 4px) !important;
   }
+}
+
+/* === CURSOR BUTTERFLIES === */
+@keyframes butterflyFloat {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(1);
+  }
+
+  30% {
+    transform: translate(calc(-50% + var(--drift-x) * 0.3), calc(-50% - 30px)) rotate(var(--rotate)) scaleX(0.4);
+  }
+
+  60% {
+    transform: translate(calc(-50% + var(--drift-x) * 0.7), calc(-50% - 70px)) rotate(calc(var(--rotate) * -1)) scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--drift-x)), calc(-50% - 120px)) rotate(var(--rotate)) scaleX(0.4);
+  }
+}
+
+/* === BACK BUTTON === */
+.back-btn:hover {
+  background-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  border-color: var(--primary) !important;
 }
